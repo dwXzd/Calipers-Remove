@@ -25,8 +25,8 @@ def main():
     # assert os.path.exists(img_path), f"image {img_path} not found."
     # assert os.path.exists(roi_mask_path), f"image {roi_mask_path} not found."
 
-    mean = (0.709, 0.381, 0.224)
-    std = (0.127, 0.079, 0.043)
+    # mean = (0.709, 0.381, 0.224)
+    # std = (0.127, 0.079, 0.043)
 
     # get devices
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -74,16 +74,7 @@ def main():
         array = array.astype('uint8')  # 转换为uint8类型
         pil_image = Image.fromarray(array)
         pil_image.show()
-        test = 111
-        # 将前景对应的像素值改成255(白色)
-        # prediction[prediction == 1] = 255
-        # 将不敢兴趣的区域像素设置成0(黑色)
-        # prediction[roi_img == 0] = 0
-        # dst1 = Image.fromarray(prediction,'L')
-        # dst1 = cv2.cvtColor(np.array(prediction), cv2.COLO)
-        # cv2.imwrite('666.png', dst1)
-        # mask = Image.fromarray(prediction, 'L')
-        # mask.save("test_result.png")
+        pil_image.save("test_result.png")
 
 
 if __name__ == '__main__':
